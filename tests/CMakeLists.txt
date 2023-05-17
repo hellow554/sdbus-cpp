@@ -2,7 +2,7 @@
 # DOWNLOAD AND BUILD OF GOOGLETEST
 #-------------------------------
 
-set(GOOGLETEST_VERSION 1.10.0 CACHE STRING "Version of gmock to use")
+set(GOOGLETEST_VERSION 1.13.0 CACHE STRING "Version of gmock to use")
 set(GOOGLETEST_GIT_REPO "https://github.com/google/googletest.git" CACHE STRING "A git repo to clone and build googletest from if gmock is not found in the system")
 
 find_package(GTest ${GOOGLETEST_VERSION} CONFIG)
@@ -22,7 +22,7 @@ if (NOT TARGET GTest::gmock)
         message("Fetching googletest v${GOOGLETEST_VERSION}...")
         FetchContent_Declare(googletest
                             GIT_REPOSITORY ${GOOGLETEST_GIT_REPO}
-                            GIT_TAG        release-${GOOGLETEST_VERSION}
+                            GIT_TAG        v${GOOGLETEST_VERSION}
                             GIT_SHALLOW    1
                             UPDATE_COMMAND "")
 
